@@ -1,0 +1,21 @@
+{% extends 'partials/base.html' %}
+
+{% block title %}DM IMS | Dashboard{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated and user.is_staff and user.is_superuser %}
+
+<h1 class="display-2 text-center" style="padding: 1rem;">Welcome to DM IMS Dashboard, {{ user.username }} </h1>
+
+{% include 'partials/cards.html' %}
+
+{% else %}
+
+{% include 'dashboard/staff_index.html' %}
+
+{% endif %}
+
+{% endblock %}
+
+{% include 'partials/footer.html' %}

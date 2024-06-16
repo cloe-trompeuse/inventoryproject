@@ -1,0 +1,31 @@
+{% extends 'partials/base.html' %}
+
+{% block title %} DM IMS | User Profile {% endblock %}
+
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                User Profile Update
+            </div>
+            <div class="row p-2">
+                <div class="col-md-5">
+                    <span class="h4">Profile Information</span>
+                    <hr>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ user_form| crispy }}
+                        {{ profile_form| crispy }}
+                        <input class="btn btn-primary" type="submit" value="Update Profile">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
